@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Clock, Sparkles, Ticket, BookOpen } from 'lucide-react';
-import Button from '../ui/Button';
 import EnhancedButton from '../ui/EnhancedButton';
+import CountdownTimer from '../ui/CountdownTimer';
 
 const HeroSection: React.FC = () => {
   const floatingTomatoes = Array.from({ length: 12 }, (_, i) => i);
@@ -263,7 +263,7 @@ const HeroSection: React.FC = () => {
 
             {/* Pune Edition - Subtitle */}
             <motion.h3
-              className="font-fancy font-semibold text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-orange-600 mb-8 relative"
+              className="font-fancy font-semibold text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-orange-600 mb-6 relative"
               variants={itemVariants}
             >
               <motion.span
@@ -308,6 +308,122 @@ const HeroSection: React.FC = () => {
                 </motion.div>
               </motion.span>
             </motion.h3>
+
+            {/* Countdown Timer Section */}
+            <motion.div
+              className="mb-12 relative"
+              variants={itemVariants}
+            >
+              {/* Timer Header */}
+              <motion.div
+                className="mb-8 text-center"
+                animate={{
+                  y: [0, -3, 0]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <motion.h4
+                  className="font-display font-bold text-xl md:text-2xl lg:text-3xl text-gray-800 mb-2"
+                  animate={{
+                    color: ["#1f2937", "#dc2626", "#ea580c", "#1f2937"]
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity
+                  }}
+                >
+                  <motion.span
+                    className="inline-block mr-2"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  >
+                    ⏰
+                  </motion.span>
+                  Festival Countdown
+                  <motion.span
+                    className="inline-block ml-2"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    🎉
+                  </motion.span>
+                </motion.h4>
+                <motion.p
+                  className="text-gray-600 font-medium text-lg"
+                  animate={{
+                    opacity: [0.7, 1, 0.7]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity
+                  }}
+                >
+                  Get ready for the ultimate tomato celebration!
+                </motion.p>
+              </motion.div>
+
+              {/* Countdown Timer */}
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                {/* Background decoration for timer */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-red-200/30 via-orange-200/30 to-yellow-200/30 rounded-3xl blur-2xl"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                    rotate: [0, 2, -2, 0]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                <CountdownTimer
+                  targetDate="2025-08-23T12:30:00"
+                  className="relative z-10"
+                />
+              </motion.div>
+
+              {/* Decorative elements around timer */}
+              <motion.div
+                className="absolute -top-4 left-1/4 text-2xl"
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, 15, -15, 0]
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                🍅
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-4 right-1/4 text-2xl"
+                animate={{
+                  y: [0, 10, 0],
+                  rotate: [0, -15, 15, 0]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                🎊
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Enhanced Tagline */}

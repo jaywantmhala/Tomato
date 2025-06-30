@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
         >
           <p>&copy; 2025 La Tomatina Fest India. All rights reserved.</p>
           <p className="mt-2 text-sm">
-            Made with ❤️ for the ultimate tomato celebration experience
+            Made with ❤️ <a href="https://webutsav.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors duration-200">Webutsav</a>
           </p>
         </motion.div>
       </div>
