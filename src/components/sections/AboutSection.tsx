@@ -32,7 +32,13 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section
+      id="about"
+      className="section-padding bg-white"
+      aria-labelledby="about-heading"
+      itemScope
+      itemType="https://schema.org/Event"
+    >
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -42,12 +48,19 @@ const AboutSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
-            About the <span className="gradient-text">Fest</span>
+          <h2
+            id="about-heading"
+            className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6"
+            itemProp="name"
+          >
+            About La Tomatina <span className="gradient-text">Fest India</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-tomato-500 to-orange-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A celebration that brings the world's most famous tomato festival to India with our unique cultural flavor
+          <div className="w-24 h-1 bg-gradient-to-r from-tomato-500 to-orange-500 mx-auto mb-6" aria-hidden="true"></div>
+          <p
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            itemProp="description"
+          >
+            India's premier tomato festival bringing Spain's legendary La Tomatina celebration to Pune with authentic cultural fusion, live entertainment, and eco-friendly fun
           </p>
         </motion.div>
 
@@ -60,21 +73,22 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="font-display font-bold text-3xl md:text-4xl mb-6 text-gray-800">
-              Spain Meets India in the Ultimate Celebration
+              Spain's La Tomatina Meets India's Celebration Spirit in Pune
             </h3>
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                Inspired by Spain's legendary tomato-throwing festival, <strong className="text-tomato-600">La Tomatina Fest India</strong> brings 
-                the same incredible energy and joy with a distinctly Indian twist that celebrates our vibrant culture.
+                Inspired by Spain's world-famous La Tomatina tomato-throwing festival from Buñol, <strong className="text-tomato-600">La Tomatina Fest India 2025</strong> brings
+                the authentic Spanish festival experience to Pune with a vibrant Indian cultural fusion that celebrates Maharashtra's festive spirit.
               </p>
               <p>
-                Experience the thrill of tomato fights, splash through foam zones, dance to live DJs, 
-                enjoy themed bars, capture memories in Instagram-worthy selfie zones, and so much more — 
-                all packed into one unforgettable day of pure celebration.
+                Join thousands of festival-goers for an epic day featuring eco-friendly tomato fights, massive foam zones,
+                live DJ performances, themed bars, Instagram-worthy photo zones, traditional Indian music fusion,
+                and authentic Spanish-inspired entertainment — all in one spectacular tomato festival celebration.
               </p>
               <p>
-                This isn't just an event; it's a cultural phenomenon that brings people together from all walks of life 
-                to celebrate joy, friendship, and the simple pleasure of letting loose and having fun.
+                La Tomatina Fest India isn't just Pune's biggest tomato festival; it's a groundbreaking cultural event
+                that unites people from across Maharashtra and India to experience the joy of Spain's most famous festival
+                with authentic Indian hospitality and celebration traditions.
               </p>
             </div>
           </motion.div>

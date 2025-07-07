@@ -35,7 +35,11 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100"
+      aria-label="La Tomatina Fest India 2025 - Main Event Information"
+    >
       {/* Enhanced Animated Background Pattern */}
       <div className="absolute inset-0 bg-tomato-pattern opacity-10 animate-float-slow"></div>
 
@@ -43,11 +47,12 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-red-50/30 to-orange-100/50"></div>
 
       {/* Enhanced Floating Tomatoes */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true" role="presentation">
         {floatingTomatoes.map((index) => (
           <motion.div
             key={index}
             className="absolute text-3xl md:text-5xl lg:text-6xl opacity-15"
+            aria-hidden="true"
             initial={{
               x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
               y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
@@ -180,6 +185,7 @@ const HeroSection: React.FC = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
+              itemProp="name"
             >
               <motion.span
                 className="inline-block gradient-text-animated text-glow relative"
@@ -446,9 +452,10 @@ const HeroSection: React.FC = () => {
             />
 
             <motion.div className="relative glass-effect rounded-3xl p-8 md:p-12 border-2 border-white/30">
-              <motion.p
+              <motion.div
                 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-700 mb-8 max-w-6xl mx-auto leading-relaxed font-medium"
                 variants={itemVariants}
+                itemProp="description"
               >
                 <motion.span
                   className="text-red-600 font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl relative inline-block"
@@ -469,15 +476,16 @@ const HeroSection: React.FC = () => {
                   }}
                 >
                   Namaste, Pune!
-                  <motion.div
+                  <motion.span
                     className="absolute -top-2 -right-2 text-2xl"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    aria-hidden="true"
                   >
                     🙏
-                  </motion.div>
+                  </motion.span>
                 </motion.span>{' '}
-                Get ready for a splash of{' '}
+                Get ready for India's biggest{' '}
                 <motion.span
                   className="text-red-600 font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl relative inline-block"
                   animate={{
@@ -492,22 +500,23 @@ const HeroSection: React.FC = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  madness
-                  <motion.div
+                  tomato festival
+                  <motion.span
                     className="absolute -top-1 -right-1 text-xl"
                     animate={{
                       scale: [1, 1.5, 1],
                       rotate: [0, 180, 360]
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
+                    aria-hidden="true"
                   >
                     💥
-                  </motion.div>
+                  </motion.span>
                 </motion.span>{' '}
-                like never before!
-              </motion.p>
+                experience!
+              </motion.div>
 
-              <motion.p
+              <motion.div
                 className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-5xl mx-auto font-light leading-relaxed"
                 variants={itemVariants}
                 animate={{
@@ -519,9 +528,9 @@ const HeroSection: React.FC = () => {
                   ease: "easeInOut"
                 }}
               >
-                Presenting the wildest, juiciest celebration of the year — where music, masti, and
-                a whole lot of tomato fun await you.
-              </motion.p>
+                Experience the ultimate Spanish-inspired tomato festival in Pune with live DJs, eco-friendly fun,
+                foam zones, music, and unforgettable memories on August 23rd, 2025.
+              </motion.div>
             </motion.div>
           </motion.div>
 
@@ -606,6 +615,8 @@ const HeroSection: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            role="region"
+            aria-label="Event Details"
           >
             <motion.div
               className="glass-effect-strong rounded-2xl p-8 shadow-2xl border-2 border-white/40 hover:border-red-300 transition-all duration-300 group"
@@ -615,6 +626,8 @@ const HeroSection: React.FC = () => {
                 y: -10,
                 boxShadow: "0 20px 40px rgba(239, 68, 68, 0.2)"
               }}
+              role="article"
+              aria-labelledby="event-date"
             >
               <motion.div
                 animate={{
@@ -622,11 +635,12 @@ const HeroSection: React.FC = () => {
                   scale: [1, 1.1, 1]
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
+                aria-hidden="true"
               >
-                <Calendar className="w-12 h-12 text-red-500 mx-auto mb-4 group-hover:text-red-600 transition-colors" />
+                <Calendar className="w-12 h-12 text-red-500 mx-auto mb-4 group-hover:text-red-600 transition-colors" aria-hidden="true" />
               </motion.div>
-              <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-red-700 transition-colors">Date</h3>
-              <p className="text-lg text-gray-600 font-medium">Saturday, 23rd August 2025</p>
+              <h3 id="event-date" className="font-bold text-xl text-gray-800 mb-3 group-hover:text-red-700 transition-colors">Event Date</h3>
+              <p className="text-lg text-gray-600 font-medium" itemProp="startDate" content="2025-08-23">Saturday, 23rd August 2025</p>
             </motion.div>
 
             <motion.div
